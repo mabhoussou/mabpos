@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité · MAB-POS</title>
+<meta name="description" content="Politique de confidentialité de l'application de caisse MAB-POS.">
+<meta name="theme-color" content="#4A1F9A">
+<link rel="icon" href="images/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  À COMPLÉTER AVANT PUBLICATION : remplacez les passages entre crochets […]
+  (nom de l'éditeur, région d'hébergement Supabase, e-mail de contact).
+-->
+<header class="top">
+  <div class="wrap top-row">
+    <a href="index.html" class="brand"><img src="images/icone.png" alt="" width="36" height="36"> MAB-POS</a>
+    <nav class="nav"><a href="index.html#telecharger" class="btn btn-small">Télécharger</a></nav>
+  </div>
+</header>
+
+<main class="doc">
+  <h1>Politique de confidentialité</h1>
+  <p class="small">Dernière mise à jour : 16 novembre 2026</p>
+
+  <p>MAB-POS est une application de caisse pour commerces (bars, maquis, restaurants, boutiques), éditée par <b>[nom de l'éditeur]</b>. Cette politique explique quelles données l'application traite, pourquoi, et quels sont vos droits.</p>
+
+  <h2>1. Qui utilise l'application</h2>
+  <p>MAB-POS est utilisée par des <b>commerçants et leur personnel</b>. Les clients du commerce n'utilisent pas l'application ; le commerçant peut enregistrer certaines informations les concernant (voir ci-dessous).</p>
+
+  <h2>2. Données enregistrées</h2>
+  <p><b>Sur le téléphone (toujours)</b>, dans une base de données privée à l'application :</p>
+  <ul>
+    <li><b>Commerce</b> : nom, adresse, téléphone, NIF, logo, message des reçus.</li>
+    <li><b>Personnel</b> : nom, rôle, code PIN <b>haché</b> (le code lui-même n'est jamais enregistré).</li>
+    <li><b>Ventes et stock</b> : produits, prix, photos des produits, ventes, paiements (espèces, Mobile Money avec la référence de transaction, ardoise, points), mouvements de stock, clôtures de caisse, journal des opérations.</li>
+    <li><b>Clients du commerce</b> (facultatif) : nom, numéro de téléphone, ardoise (crédit), historique d'achats, points de fidélité.</li>
+    <li><b>Abonnement</b> : un identifiant d'installation <b>tiré au hasard</b> (ce n'est pas un identifiant du téléphone) et le code d'activation.</li>
+  </ul>
+
+  <p><b>Sur nos serveurs</b>, hébergés par Supabase <b>[région d'hébergement]</b> et transmis de façon chiffrée (HTTPS) :</p>
+  <ul>
+    <li><b>Synchronisation (formule Business)</b> : une copie des données ci-dessus, pour qu'elles soient partagées entre les téléphones du même commerce (ou des commerces d'un même patron), et l'<b>adresse e-mail</b> du gérant. Chaque commerce n'a accès qu'à ses propres données.</li>
+    <li><b>Paiement de l'abonnement</b> : lorsqu'un commerçant déclare un paiement Mobile Money, nous recevons la formule choisie, le montant, l'opérateur, le <b>numéro qui a payé</b> et la <b>référence de la transaction</b>, pour vérifier le paiement et activer l'abonnement.</li>
+    <li><b>Activation de l'abonnement</b> : l'identifiant d'installation ou du commerce, et le code d'activation correspondant.</li>
+  </ul>
+
+  <h2>3. Ce que nous ne faisons pas</h2>
+  <ul>
+    <li>Aucune publicité, aucun suivi publicitaire, aucun outil de mesure d'audience.</li>
+    <li>Aucune vente ni location de données.</li>
+    <li>Aucune collecte de localisation, de contacts du téléphone ou de messages.</li>
+  </ul>
+
+  <h2>4. Autorisations du téléphone</h2>
+  <ul>
+    <li><b>Appareil photo</b> : scanner les codes-barres et photographier les produits.</li>
+    <li><b>Internet</b> : synchronisation entre téléphones et activation de l'abonnement.</li>
+  </ul>
+  <p>Les reçus et rapports ne sont partagés (WhatsApp, SMS…) que lorsque l'utilisateur le demande, via le menu de partage d'Android.</p>
+
+  <h2>5. Durée de conservation</h2>
+  <p>Les données restent sur le téléphone jusqu'à ce que le commerçant les supprime ou désinstalle l'application. Les données synchronisées sont conservées tant que le compte du commerce existe ; elles sont supprimées sur demande. Les informations de paiement de l'abonnement sont conservées pour la comptabilité.</p>
+
+  <h2>6. Vos droits</h2>
+  <p>Un commerçant peut demander l'accès, la correction ou la suppression des données de son commerce sur nos serveurs. Un client d'un commerce peut s'adresser directement à ce commerce, ou nous écrire.</p>
+  <p>Contact : <b>[adresse e-mail de contact]</b> · WhatsApp : <a href="https://wa.me/241077571960">077 57 19 60</a></p>
+
+  <h2>7. Sécurité</h2>
+  <p>Codes PIN hachés, verrouillage après plusieurs essais, autorisation du gérant pour les opérations sensibles, connexions chiffrées, séparation stricte des données entre commerces sur le serveur.</p>
+
+  <h2>8. Modifications</h2>
+  <p>Cette politique peut évoluer ; la date en haut de page indique la dernière mise à jour.</p>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <span>© 2026 MAB-POS · Libreville, Gabon</span>
+    <a href="index.html">Accueil</a>
+  </div>
+</footer>
+</body>
+</html>
