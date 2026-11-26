@@ -5,54 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>E-mail confirmé · MAB-POS</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#4A1F9A">
+<meta name="theme-color" content="#0F2A21">
 <link rel="icon" href="images/icone.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 <!--
   Page d'arrivée du lien de confirmation envoyé par Supabase à la création
   d'un compte commerce. Réglage : Supabase > Authentication > URL Configuration
   > Site URL = https://mabhoussou.github.io/mabpos/compte-confirme.html
   Si le lien est expiré ou déjà utilisé, Supabase ajoute « #error=... » à
   l'adresse : la page affiche alors le second message.
+  Page autonome (couleurs de la charte MAB-POS : vert forêt, émeraude, sable).
 -->
-<header class="top">
-  <div class="wrap top-row">
-    <a href="index.html" class="brand"><img src="images/icone.png" alt="" width="36" height="36"> MAB-POS</a>
-  </div>
+<style>
+  :root {
+    --forest: #0F2A21;
+    --emerald: #0B6B4F;
+    --emerald-light: #5FD1A6;
+    --gold: #FFB020;
+    --bg: #F5F2EC;
+    --card: #FFFFFF;
+    --text: #0F2A21;
+    --muted: #55665E;
+    --line: #E3DED3;
+    --step: #E7F3EE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B1F18;
+      --card: #12332A;
+      --text: #F5F2EC;
+      --muted: #A9C2B7;
+      --line: #1F4A3C;
+      --step: #173D32;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+    font: 17px/1.55 Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  header { background: var(--forest); color: #fff; padding: 18px 16px; text-align: center; }
+  header .logo { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #fff; text-decoration: none; }
+  header .tag { display: block; font-size: 13px; color: var(--emerald-light); margin-top: 2px; }
+  main { max-width: 520px; margin: 0 auto; padding: 28px 16px 48px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+    padding: 32px 24px; text-align: center;
+    box-shadow: 0 10px 30px rgba(15, 42, 33, .08);
+  }
+  .card[hidden] { display: none; }
+  .badge {
+    width: 76px; height: 76px; margin: 0 auto 18px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 38px; font-weight: 800; color: #fff;
+    background: var(--emerald); box-shadow: 0 0 0 10px rgba(95, 209, 166, .25);
+  }
+  .badge.warn { background: var(--gold); color: var(--forest); box-shadow: 0 0 0 10px rgba(255, 176, 32, .22); }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 10px; font-weight: 800; }
+  p { margin: 0 0 14px; }
+  .muted { color: var(--muted); }
+  ol { list-style: none; padding: 0; margin: 18px 0; text-align: left; counter-reset: s; }
+  ol li {
+    counter-increment: s; display: flex; gap: 12px; align-items: center;
+    background: var(--step); border-radius: 14px; padding: 12px 14px; margin: 8px 0;
+  }
+  ol li::before {
+    content: counter(s); flex: none; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center; font-weight: 800; font-size: 15px;
+    background: var(--emerald); color: #fff;
+  }
+  .help { text-align: center; margin-top: 26px; font-size: 15px; color: var(--muted); }
+  .wa {
+    display: inline-block; margin: 10px 0 8px; padding: 12px 22px; border-radius: 999px;
+    background: var(--emerald); color: #fff; font-weight: 700; text-decoration: none;
+  }
+  .help a.mail { color: var(--emerald); }
+  @media (prefers-color-scheme: dark) { .help a.mail { color: var(--emerald-light); } }
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html">MAB-POS</a>
+  <span class="tag">La caisse intelligente de votre commerce</span>
 </header>
 
-<main class="doc" style="text-align:center; max-width:560px; margin:0 auto;">
-  <div id="ok">
-    <p style="font-size:56px; margin:24px 0 8px;">✅</p>
+<main>
+  <div class="card" id="ok">
+    <div class="badge">✓</div>
     <h1>Votre e-mail est confirmé</h1>
-    <p>Votre compte commerce MAB-POS est prêt.</p>
+    <p class="muted">Votre compte commerce MAB-POS est prêt.</p>
     <p><strong>Retournez maintenant dans l'application MAB-POS</strong>, puis :</p>
-    <ol style="text-align:left; display:inline-block; margin:8px auto 16px;">
-      <li>Menu &gt; <strong>Appareils et synchronisation</strong></li>
-      <li>Touchez <strong>« J'ai déjà un compte »</strong></li>
-      <li>Saisissez votre e-mail et votre mot de passe</li>
+    <ol>
+      <li><span>Menu › <strong>Appareils et synchronisation</strong></span></li>
+      <li><span>Touchez <strong>« J'ai déjà un compte »</strong></span></li>
+      <li><span>Saisissez votre e-mail et votre mot de passe</span></li>
     </ol>
-    <p>Vous pouvez fermer cette page.</p>
+    <p class="muted">Vous pouvez fermer cette page.</p>
   </div>
 
-  <div id="erreur" hidden>
-    <p style="font-size:56px; margin:24px 0 8px;">⚠️</p>
+  <div class="card" id="erreur" hidden>
+    <div class="badge warn">!</div>
     <h1>Ce lien n'est plus valable</h1>
-    <p>Il a peut-être déjà été utilisé, ou il a expiré.</p>
+    <p class="muted">Il a peut-être déjà été utilisé, ou il a expiré.</p>
     <p>Si vous avez déjà cliqué une première fois, votre e-mail est sans doute
       déjà confirmé : dans MAB-POS, touchez <strong>« J'ai déjà un compte »</strong>
       et connectez-vous.</p>
-    <p>Sinon, recréez le compte depuis l'application pour recevoir un nouveau lien.</p>
+    <p class="muted">Sinon, recréez le compte depuis l'application pour recevoir un nouveau lien.</p>
   </div>
 
-  <p class="small" style="margin-top:32px;">Besoin d'aide ?
-    <a href="https://wa.me/24160289128">WhatsApp +241 60 28 91 28</a> ·
-    <a href="mailto:mabdigitaltech@gmail.com">mabdigitaltech@gmail.com</a></p>
+  <div class="help">
+    Besoin d'aide ?<br>
+    <a class="wa" href="https://wa.me/24160289128">WhatsApp · 060 28 91 28</a><br>
+    <a class="mail" href="mailto:mabdigitaltech@gmail.com">mabdigitaltech@gmail.com</a>
+  </div>
 </main>
 
 <script>
